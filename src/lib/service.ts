@@ -1,5 +1,5 @@
 import { getConfig } from './config';
-import { sendOscBool, sendOscFloat } from './osc';
+import { sendOscBool, sendOscFloat, sendOscInt } from './osc';
 
 export type ServiceProps = {
   setConnected: (connected: boolean) => void;
@@ -33,5 +33,8 @@ export const getTimeoutSeconds = async () => {
 
 export const sendOscHeartRate = async (heartRate: number) => {
   const config = await getConfig();
+  // 发送心率原始值（int）
+  sendOscInt(config, config.osc_path_heart_rate, heartRate);
+  // 发送心率百分比（float）
   sendOscFloat(config, config.osc_path_percent, heartRate / config.max_heart_rate);
 };

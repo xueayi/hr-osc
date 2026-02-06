@@ -8,6 +8,7 @@ export const defaultConfig: IConfig = {
 
   osc_path_connected: '/avatar/parameters/hr_connected',
   osc_path_percent: '/avatar/parameters/hr_percent',
+  osc_path_heart_rate: '/avatar/parameters/hr_value',
 
   connected_timeout: 10,
   max_heart_rate: 200,
@@ -78,6 +79,7 @@ export interface IConfig {
 
   osc_path_connected: string;
   osc_path_percent: string;
+  osc_path_heart_rate: string;
 
   osc_client_host: string;
   osc_client_port: number;

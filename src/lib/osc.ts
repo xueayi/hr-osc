@@ -17,3 +17,7 @@ export const sendOscFloat = (config: IConfig, path: string, value: number) => {
 export const sendOscBool = (config: IConfig, path: string, value: boolean) => {
   invoke('send_bool', { addr: getAddr(config), path, value });
 };
+
+export const sendOscInt = (config: IConfig, path: string, value: number) => {
+  invoke('send_int', { addr: getAddr(config), path, value: Math.floor(value) });
+};

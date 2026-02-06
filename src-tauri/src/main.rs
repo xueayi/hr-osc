@@ -33,6 +33,16 @@ fn send_bool(addr: &str, path: &str, value: bool) {
 }
 
 #[tauri::command]
+fn send_int(addr: &str, path: &str, value: i32) {
+    let osc_message = OscMessage {
+        addr: path.to_owned(),
+        args: vec![OscType::Int(value)],
+    };
+
+    send_osc_message(addr, osc_message)
+}
+
+#[tauri::command]
 fn start_http_server(port: u16) {
     http_server::start_server(port);
 }
@@ -63,6 +73,7 @@ async fn main() {
         .invoke_handler(tauri::generate_handler![
             send_float,
             send_bool,
+            send_int,
             start_http_server,
             stop_http_server,
             get_http_heartrate,

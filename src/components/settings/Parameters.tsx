@@ -15,6 +15,11 @@ const Parameters = () => {
     config?.osc_path_percent,
     (val) => saveConfig({ ...(config || defaultConfig), osc_path_percent: val })
   );
+  const heartRateValue = useInput(
+    { placeholder: '', type: 'text' },
+    config?.osc_path_heart_rate,
+    (val) => saveConfig({ ...(config || defaultConfig), osc_path_heart_rate: val })
+  );
   const heartRate = useInput(
     { placeholder: `(default: ${defaultConfig.max_heart_rate})`, type: 'number' },
     config?.max_heart_rate,
@@ -26,8 +31,11 @@ const Parameters = () => {
       <div className="text-sm leading-3">Connected Parameter Path:</div>
       {connected.component}
 
-      <div className="text-sm leading-3">HR Percent Parameter Path:</div>
+      <div className="text-sm leading-3">HR Percent Parameter Path (float):</div>
       {percent.component}
+
+      <div className="text-sm leading-3">HR Value Parameter Path (int):</div>
+      {heartRateValue.component}
 
       <div className="text-sm leading-3">Max Heart Rate:</div>
       {heartRate.component}
