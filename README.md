@@ -2,7 +2,7 @@
 
 Heartrate OSC for VRChat
 
-为了实现apple watch不能直接通过蓝牙发送心率广播的问题，所以参考了[PCBLEtoVRC](https://github.com/SinkStarUR/PCBLEtoVRC)的实现方式，对原版hr-osc进行了修改。
+为了解决apple watch不能直接通过蓝牙发送心率广播的问题，所以参考了[PCBLEtoVRC](https://github.com/SinkStarUR/PCBLEtoVRC)的实现方式，对原版hr-osc进行了修改。
 
 
 ## 与原版的主要区别
